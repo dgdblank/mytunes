@@ -25,7 +25,7 @@ describe('LibraryEntryView', function() {
   it('queues clicked songs', function(){
     sinon.spy(SongModel.prototype, 'enqueue');
 
-    view.$el.children().first().click();
+    view.$el.children().first().dblclick();
     expect(model.enqueue).to.have.been.called;
 
     SongModel.prototype.enqueue.restore();
