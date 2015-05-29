@@ -15,18 +15,19 @@ var PlayListView = Backbone.View.extend({
 
   handleAddPlayList: function() {
 
-    var name = prompt("Enter Playlist name:");
+   var name = prompt("Enter Playlist name:");
 
-    var newPL = new PlayListModel(name, new SongQueue());
+   var newPL = new PlayListModel(name, new SongQueue());
 
-    this.collection.add(newPL);
+   this.collection.add(newPL);
+    // this.collection.createPlaylist();
   },
 
   render: function() {
 
     this.$el.html('<th>PlayLists <span class="addPlayList"> || add Playlist</span></th>').append(
-      this.collection.map(function(songQueue){
-        return new PlayListEntryView({model: songQueue}).render();
+      this.collection.map(function(playListModel){
+        return new PlayListEntryView({model: playListModel}).render();
       })
     );
     return this.$el;
